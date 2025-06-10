@@ -1,0 +1,10 @@
+[package]
+name = "rag-business"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+rag-deps = { path = "../deps" }
+rag-core = { path = "../core" }
+rag-services = { path = "../services" }
+serde = { workspace = true } 

@@ -1,0 +1,67 @@
+[workspace]
+members = [
+    "deps",
+    "core", 
+    "services",
+    "business",
+    "api",
+    "infrastructure",
+]
+
+[workspace.dependencies]
+# 异步运行时
+tokio = { version = "1.0", features = ["full"] }
+
+# 序列化和数据处理
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+uuid = { version = "1.0", features = ["v4", "serde"] }
+chrono = { version = "0.4", features = ["serde"] }
+
+# 数据库相关
+sqlx = { version = "0.7", features = ["runtime-tokio-rustls", "postgres", "uuid", "chrono"] }
+
+# HTTP相关
+reqwest = { version = "0.11", features = ["json"] }
+axum = "0.7"
+
+# 错误处理
+anyhow = "1.0"
+thiserror = "1.0"
+
+# 异步trait
+async-trait = "0.1"
+
+# 配置和日志
+config = "0.13"
+toml = "0.8"
+log = "0.4"
+env_logger = "0.10"
+
+# 向量计算
+ndarray = "0.15"
+
+# Web框架扩展
+tower = "0.4"
+tower-http = "0.5"
+
+# 其他工具
+once_cell = "1.19"
+
+[package]
+name = "ticket_rag_001"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+rag-deps = { path = "deps" }
+rag-core = { path = "core" }
+rag-business = { path = "business" }
+rag-api = { path = "api" }
+rag-infrastructure = { path = "infrastructure" }
+env_logger = { workspace = true }
+anyhow = { workspace = true }
+
+[[bin]]
+name = "rag-server"
+path = "bin/server.rs"

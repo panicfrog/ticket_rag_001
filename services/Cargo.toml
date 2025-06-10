@@ -1,0 +1,11 @@
+[package]
+name = "rag-services"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+rag-deps = { path = "../deps" }
+rag-core = { path = "../core" }
+sqlx = { workspace = true }
+reqwest = { workspace = true }
+serde = { workspace = true } 

@@ -1,0 +1,49 @@
+# RAG工单处理系统 - 开发环境配置
+
+[server]
+host = "0.0.0.0"
+port = 8080
+workers = 4
+
+[database]
+url = "postgresql://username:password@localhost/rag_tickets"
+max_connections = 10
+min_connections = 1
+acquire_timeout = 30
+
+[vector_db]
+provider = "sqlite"  # 开发环境使用SQLite
+connection_string = "sqlite:./data/vectors.db"
+dimension = 1024
+collection_name = "tickets"
+
+[embedding]
+provider = "qwen"
+model = "qwen3-embedding"
+api_key = "${QWEN_API_KEY}"
+endpoint = "https://dashscope.aliyuncs.com/api/v1/services/embeddings/text-embedding/text-embedding"
+dimension = 1024
+batch_size = 32
+timeout = 30
+
+[reranking]
+provider = "qwen"
+model = "qwen3-reranking"
+api_key = "${QWEN_API_KEY}"
+endpoint = "https://dashscope.aliyuncs.com/api/v1/services/ai-search/text-reranking"
+max_documents = 50
+timeout = 30
+
+[llm]
+provider = "qwen"
+model = "qwen2.5-instruct"
+api_key = "${QWEN_API_KEY}"
+endpoint = "https://dashscope.aliyuncs.com/api/v1/services/aigc/text-generation/generation"
+max_tokens = 2048
+temperature = 0.7
+timeout = 60
+
+[logging]
+level = "debug"
+file = "logs/app.log"
+json_format = false 

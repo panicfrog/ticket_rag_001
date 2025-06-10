@@ -1,0 +1,35 @@
+[package]
+name = "rag-api"
+version = "0.1.0"
+edition = "2021"
+
+[build-dependencies]
+vergen = { version = "9.0", features = ["build", "rustc"] }
+
+[dependencies]
+rag-deps = { path = "../deps" }
+rag-core = { path = "../core" }
+rag-business = { path = "../business" }
+rag-infrastructure = { path = "../infrastructure" }
+
+# Web框架
+axum = { workspace = true }
+tower = { workspace = true }
+tower-http = { version = "0.5", features = ["cors", "trace", "compression-gzip", "timeout"] }
+
+# 序列化
+serde = { workspace = true }
+serde_json = { workspace = true }
+
+# HTTP客户端
+reqwest = { workspace = true }
+
+# 异步运行时
+tokio = { workspace = true }
+
+# 日志
+log = { workspace = true }
+
+# 错误处理
+anyhow = { workspace = true }
+thiserror = { workspace = true } 

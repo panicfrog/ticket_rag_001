@@ -1,0 +1,13 @@
+[package]
+name = "rag-core"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+rag-deps = { path = "../deps" }
+ndarray = { workspace = true }
+serde = { workspace = true }
+thiserror = { workspace = true }
+sqlx = { workspace = true }
+reqwest = { workspace = true }
+anyhow = { workspace = true } 

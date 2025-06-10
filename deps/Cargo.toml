@@ -1,0 +1,17 @@
+[package]
+name = "rag-deps"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+# 重新导出所有通用依赖，方便其他crate使用
+tokio = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+uuid = { workspace = true }
+chrono = { workspace = true }
+anyhow = { workspace = true }
+thiserror = { workspace = true }
+async-trait = { workspace = true }
+log = { workspace = true }
+toml = { workspace = true } 
